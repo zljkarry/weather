@@ -1,0 +1,452 @@
+@charset "utf-8";
+
+//引入hotcss的px2rem函数的文件
+@import "../lib/hotcss/px2rem";
+
+//定义设计图的宽度
+$designWidth : 375;
+
+// 样式重置
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  border: 0;
+
+  background-color: transparent;
+
+  outline: none;
+}
+
+// 解决页面出现 X轴横向滚动条问题——开始
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+// 解决页面出现 X轴横向滚动条问题——结束
+
+body {
+  background-color: rgb(244, 244, 244);
+
+  width: 100%;
+
+  section {
+    margin-bottom: px2rem(10);
+    // 横向滚动
+    width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+}
+
+.icon-sun {
+  font-size: px2rem(22);
+  color: rgb(255, 213, 79);
+}
+
+// 上面大板块
+#weather {
+  background: url(../images/clear.jpg) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: px2rem(470);
+  color: #fff;
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: px2rem(40);
+    font-size: px2rem(18);
+
+    .iconfont {
+      font-size: px2rem(30);
+    }
+  }
+
+  #air_quality {
+    background-color: rgb(240, 204, 53);
+    border-radius: 10%;
+    width: px2rem(40);
+    height: px2rem(46);
+    margin: px2rem(20) px2rem(12);
+    font-size: px2rem(14);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  #main {
+    text-align: center;
+
+    #temperature {
+      font-size: px2rem(60);
+      transform: translateX(px2rem(10));
+    }
+
+    #wea {
+      font-size: px2rem(24);
+    }
+
+    #addition {
+      font-size: px2rem(14);
+      margin: px2rem(4) 0 px2rem(80) 0;
+    }
+
+    #sentence {
+      font-size: px2rem(16);
+    }
+  }
+}
+
+// 搜索城市
+#search {
+  height: px2rem(470);
+  background-color: #fff;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+
+  // 要改变的
+  display: none;
+
+  .sea {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: px2rem(40);
+
+    input {
+      width: 80%;
+      height: px2rem(30);
+      font-size: px2rem(16);
+      border: none;
+      background-color: rgb(242, 242, 242);
+
+    }
+
+    button {
+      font-size: px2rem(14);
+    }
+  }
+
+  .hot_cities {
+    font-size: px2rem(16);
+    margin: px2rem(10);
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+      width: px2rem(50);
+      height: px2rem(30);
+      text-align: center;
+      line-height: px2rem(30);
+      background-color: rgb(242, 242, 242);
+      border-radius: 30%;
+      font-size: px2rem(16);
+      color: #434343;
+      margin: px2rem(10);
+    }
+
+  }
+}
+
+// 今明两天的天气
+#twodays {
+  font-size: px2rem(14);
+  color: #434343;
+  background-color: #fff;
+  width: 100%;
+  height: px2rem(66);
+  padding: px2rem(20) 0;
+  border-bottom: solid px2rem(0.5) #999;
+
+  #today {
+    display: inline-block;
+    padding: 0 px2rem(10);
+    width: 40%;
+    margin: px2rem(5);
+    border-right: solid px2rem(0.5) #999;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 px2rem(8) 0;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .iconfont {
+      font-size: px2rem(22);
+      color: #999;
+    }
+
+  }
+
+  #tommorrow {
+    display: inline-block;
+    padding: 0 px2rem(10);
+    width: 40%;
+    margin: px2rem(4);
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 px2rem(8) 0;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    .iconfont {
+      font-size: px2rem(22);
+      color: rgb(255, 213, 79);
+    }
+
+  }
+}
+
+// 24小时的天气
+#hours {
+  background-color: #fff;
+  padding: px2rem(4) 0;
+
+  .scroll {
+    #hour_list {
+      display: flex;
+
+      .item {
+        width: px2rem(46);
+        height: px2rem(80);
+        margin: px2rem(20) px2rem(5);
+
+
+        .time {
+          color: #999;
+          text-align: center;
+          font-size: px2rem(12);
+        }
+
+        .icon {
+          margin: px2rem(6) auto;
+          text-align: center;
+
+          .iconfont {
+            font-size: px2rem(22);
+            color: rgb(255, 213, 79);
+          }
+        }
+
+        .tempt {
+          color: #434343;
+          text-align: center;
+          font-size: px2rem(14);
+          color: rgb(67, 67, 67);
+          transform: translateX(px2rem(3));
+        }
+      }
+    }
+  }
+}
+
+// 一周的天气
+#week {
+  border-bottom: solid px2rem(0.5) #999;
+  background-color: #fff;
+  font-size: px2rem(13);
+  height: px2rem(340);
+  margin-bottom: px2rem(10);
+  padding-top: px2rem(26);
+  position: relative;
+
+  #week_list {
+    width: px2rem(62);
+    text-align: center;
+    display: flex;
+
+    .item {
+      margin: 0 px2rem(10);
+    }
+
+    >:first-child {
+      color: #b2b2b2;
+
+      .iconfont {
+        color: rgb(201, 234, 245);
+      }
+    }
+
+    .day,
+    .date,
+    .wind {
+      color: rgb(153, 153, 153);
+    }
+
+    .date {
+      margin: px2rem(2) 0 px2rem(10) 0;
+    }
+
+    .daytime {
+      .weat {
+        font-size: px2rem(15);
+        margin-bottom: px2rem(5);
+      }
+    }
+
+    .iconfont {
+      font-size: px2rem(30);
+      color: rgb(69, 206, 252);
+    }
+
+    .night {
+      margin-top: px2rem(100);
+
+      .weat {
+        font-size: px2rem(15);
+        margin: px2rem(10) 0;
+      }
+    }
+
+    .wind {
+      .w {
+        margin-bottom: px2rem(2);
+      }
+    }
+  }
+
+  .chart {
+    position: absolute;
+    top: px2rem(130);
+    height: px2rem(100);
+    overflow: hidden;
+
+  }
+}
+
+// 生活指数
+#index_of_living {
+  background-color: #fff;
+
+  .scroll {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200%;
+  }
+
+  .iconfont {
+    font-size: px2rem(18);
+  }
+
+  .icon-car {
+    color: rgb(164, 173, 224);
+  }
+
+  .icon-clothes {
+    color: rgb(225, 164, 196);
+  }
+
+  .icon-umbrella {
+    color: rgb(194, 165, 224);
+  }
+
+  .icon-pill {
+    color: rgb(223, 199, 156);
+  }
+
+  .icon-washcar {
+    color: rgb(181, 230, 168);
+  }
+
+  .icon-basketball {
+    color: rgb(232, 220, 163);
+  }
+
+  .icon-sun {
+    color: rgb(220, 175, 162);
+  }
+
+  .icon-fish {
+    color: rgb(163, 223, 212);
+  }
+
+  .icon-trunk {
+    color: rgb(240, 186, 168);
+  }
+
+  .icon-traffic-light {
+    color: rgb(164, 173, 224);
+  }
+
+  .icon-spread {
+    color: rgb(178, 138, 144);
+  }
+
+  .icon-smile {
+    color: rgb(158, 196, 140);
+  }
+
+  .icon-hanger {
+    color: rgb(166, 186, 204);
+  }
+
+  .icon-lipstick {
+    color: rgb(225, 150, 150);
+  }
+
+  .icon-exercise {
+    color: rgb(145, 202, 224);
+  }
+
+  .icon-nose2 {
+    color: rgb(152, 166, 220);
+  }
+
+  .item {
+    text-align: center;
+    border: solid px2rem(0.2) #999;
+    width: px2rem(93);
+    height: px2rem(92);
+    padding-top: px2rem(10);
+
+    .content {
+      font-size: px2rem(14);
+      color: #434343;
+    }
+
+    .title {
+      font-size: px2rem(12);
+      color: #999;
+    }
+  }
+}

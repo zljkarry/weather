@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- 设置缓存 -->
+  <!-- 设定网页的到期时间  -->
+  <meta http-equiv="Expires" content="-1">
+  <!-- 清除缓存（再访问这个网站要重新下载！） -->
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <!-- 禁止浏览器从本地机的缓存中调阅页面内容，访问者将无法脱机浏览 -->
+  <meta http-equiv="Pragma" content="no-cache">
+
+  <!-- author用于定义网页作者 -->
+  <meta name="author" content="aicoder.com">
+  <!-- 就是当点击网页添加至主屏幕功能时，会在主屏幕上生成一个图标。点击该图标会进入webapp功能。就是模拟本地应用的模式来浏览web页面。 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- 当启动webapp功能时，显示手机信号、时间、电池的顶部导航栏的颜色。默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- 添加到主屏幕后，app全屏显示 -->
+  <meta content="yes" name="apple-touch-fullscreen" />
+
+  <!-- 默认设备会自动识别任何可能是电话和邮箱的字符串。设置telephone=no可以禁用这项功能。 -->
+  <meta content="telephone=no,divail=no" name="format-detection" />
+
+  <!-- UC浏览器私有 -->
+  <!-- 全屏模式 -->
+  <meta name="full-screen" content="yes">
+  <!-- 应用模式 -->
+  <meta name="browsermode" content="application">
+
+  <!-- QQ浏览器私有 -->
+  <!-- 全屏模式 -->
+  <meta name="x5-fullscreen" content="true">
+  <!-- 应用模式 -->
+  <meta name="x5-page-mode" content="app">
+  <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes" />
+
+
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./lib/hotcss/hotcss.js"></script>
+  <link rel="stylesheet" href="./font/iconfont/iconfont.css">
+  <title>天气预报</title>
+
+</head>
+
+<body>
+  <!-- 上面大板块 -->
+  <div id="weather">
+
+    <div id="header">
+      <i class="iconfont icon-left"></i>
+      <p id="city">重庆</p>
+      <i class="iconfont icon-relay"></i>
+    </div>
+
+    <div id="air_quality">
+      <p id="aqi">57</p>
+      <p id="qlty">良</p>
+    </div>
+
+    <div id="main">
+      <div id="temperature">26°</div>
+      <div id="wea">多云</div>
+      <div id="addition">西南风 1级</div>
+      <div id="sentence">光芒透过云缝撒向大地~</div>
+    </div>
+
+  </div>
+
+  <!-- 搜索 -->
+  <div id="search">
+    <div class="sea">
+      <input type="text">
+      <button>取消</button>
+    </div>
+    <div class="hot_cities">热门城市</div>
+    <div class="list">
+      <div>重庆</div>
+      <div>北京</div>
+      <div>青岛</div>
+    </div>
+  </div>
+
+  <!-- 今明两天的天气 -->
+  <section id="twodays">
+    <div id="today">
+      <div class="top">
+        <p class="date">今天</p>
+        <p class="temp">30/21°</p>
+      </div>
+      <div class="bottom">
+        <p class="weath">阴转多云</p>
+        <i class="iconfont icon-cloud"></i>
+      </div>
+    </div>
+    <div id="tommorrow">
+      <div class="top">
+        <p class="date">明天</p>
+        <p class="temp">32/21°</p>
+      </div>
+      <div class="bottom">
+        <p class="weath">晴转多云</p>
+        <i class="iconfont icon-sun"></i>
+      </div>
+    </div>
+  </section>
+  <!-- 24小时的天气 -->
+  <section id="hours">
+    <div class="scroll">
+      <ol id="hour_list">
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-weather-color_moon-stars"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-thunder-shower"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-cloudy-sunny-night"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+        <li class="item">
+          <p class="time">12:00</p>
+          <div class="icon">
+            <i class="iconfont icon-sun"></i>
+          </div>
+          <p class="tempt">27°</p>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- 一周的天气 -->
+  <section id="week">
+    <div class="scroll">
+      <ol id="week_list">
+        <li class="item">
+          <p class="day">昨天</p>
+          <p class="date">05/31</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">今天</p>
+          <p class="date">06/01</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">明天</p>
+          <p class="date">06/02</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">后天</p>
+          <p class="date">06/03</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">周二</p>
+          <p class="date">06/04</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">周三</p>
+          <p class="date">06/05</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">周四</p>
+          <p class="date">06/06</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item">
+          <p class="day">周五</p>
+          <p class="date">06/07</p>
+          <div class="daytime">
+            <p class="weat">多云</p>
+            <i class="iconfont icon-cloudy-sunny"></i>
+          </div>
+          <div class="night">
+            <i class="iconfont icon-cloudy-sunny"></i>
+            <p class="weat">阴</p>
+
+          </div>
+          <div class="wind">
+            <p class="w">微风</p>
+            <p class="wi">3级</p>
+          </div>
+        </li>
+        <li class="item"></li>
+      </ol>
+      <div class="chart">
+
+        <canvas id="myChart" width="900" height="260"></canvas>
+      </div>
+    </div>
+  </section>
+  <!-- 生活指数 -->
+  <section id="index_of_living">
+    <div class="scroll">
+
+      <li class="item click">
+        <span class="iconfont icon-car"></span>
+        <p class="content">不限行</p>
+        <p class="title">尾号限行</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-clothes"></span>
+        <p class="content">热</p>
+        <p class="title">穿衣</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-umbrella"></span>
+        <p class="content">带伞</p>
+        <p class="title">雨伞</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-pill"></span>
+        <p class="content">少发</p>
+        <p class="title">感冒</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-washcar"></span>
+        <p class="content">不宜</p>
+        <p class="title">洗车</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-basketball"></span>
+        <p class="content">较不宜</p>
+        <p class="title">运动</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-sun"></span>
+        <p class="content">较弱</p>
+        <p class="title">防晒</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-fish"></span>
+        <p class="content">较适宜</p>
+        <p class="title">钓鱼</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-trunk"></span>
+        <p class="content">一般</p>
+        <p class="title">旅游</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-traffic-light"></span>
+        <p class="content">较好</p>
+        <p class="title">交通</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-spread"></span>
+        <p class="content">良</p>
+        <p class="title">空气污染扩散条件</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-smile"></span>
+        <p class="content">较舒适</p>
+        <p class="title">舒适度</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-hanger"></span>
+        <p class="content">不宜</p>
+        <p class="title">晾晒</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-lipstick"></span>
+        <p class="content">去油</p>
+        <p class="title">化妆</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-basketball"></span>
+        <p class="content">较不宜</p>
+        <p class="title">晨练</p>
+      </li>
+      <li class="item">
+        <span class="iconfont icon-nose"></span>
+        <p class="content">不易发</p>
+        <p class="title">过敏</p>
+      </li>
+    </div>
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>

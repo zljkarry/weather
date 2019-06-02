@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+body {
+  background-color: #f4f4f4;
+  width: 100%;
+}
+
+body section {
+  margin-bottom: 0.42667rem;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.icon-sun {
+  font-size: 0.93867rem;
+  color: #ffd54f;
+}
+
+#weather {
+  background: url(../images/clear.jpg) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 20.05333rem;
+  color: #fff;
+}
+
+#weather #header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.70667rem;
+  font-size: 0.768rem;
+}
+
+#weather #header .iconfont {
+  font-size: 1.28rem;
+}
+
+#weather #air_quality {
+  background-color: #f0cc35;
+  border-radius: 10%;
+  width: 1.70667rem;
+  height: 1.96267rem;
+  margin: 0.85333rem 0.512rem;
+  font-size: 0.59733rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#weather #air_quality p {
+  text-align: center;
+}
+
+#weather #main {
+  text-align: center;
+}
+
+#weather #main #temperature {
+  font-size: 2.56rem;
+  transform: translateX(0.42667rem);
+}
+
+#weather #main #wea {
+  font-size: 1.024rem;
+}
+
+#weather #main #addition {
+  font-size: 0.59733rem;
+  margin: 0.17067rem 0 3.41333rem 0;
+}
+
+#weather #main #sentence {
+  font-size: 0.68267rem;
+}
+
+#search {
+  height: 20.05333rem;
+  background-color: #fff;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+#search .sea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 1.70667rem;
+}
+
+#search .sea input {
+  width: 80%;
+  height: 1.28rem;
+  font-size: 0.68267rem;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+#search .sea button {
+  font-size: 0.59733rem;
+}
+
+#search .hot_cities {
+  font-size: 0.68267rem;
+  margin: 0.42667rem;
+}
+
+#search .list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#search .list div {
+  width: 2.13333rem;
+  height: 1.28rem;
+  text-align: center;
+  line-height: 1.28rem;
+  background-color: #f2f2f2;
+  border-radius: 30%;
+  font-size: 0.68267rem;
+  color: #434343;
+  margin: 0.42667rem;
+}
+
+#twodays {
+  font-size: 0.59733rem;
+  color: #434343;
+  background-color: #fff;
+  width: 100%;
+  height: 2.816rem;
+  padding: 0.85333rem 0;
+  border-bottom: solid 0.02133rem #999;
+}
+
+#twodays #today {
+  display: inline-block;
+  padding: 0 0.42667rem;
+  width: 40%;
+  margin: 0.21333rem;
+  border-right: solid 0.02133rem #999;
+}
+
+#twodays #today .top {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.34133rem 0;
+}
+
+#twodays #today .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+#twodays #today .iconfont {
+  font-size: 0.93867rem;
+  color: #999;
+}
+
+#twodays #tommorrow {
+  display: inline-block;
+  padding: 0 0.42667rem;
+  width: 40%;
+  margin: 0.17067rem;
+}
+
+#twodays #tommorrow .top {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.34133rem 0;
+}
+
+#twodays #tommorrow .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+#twodays #tommorrow .iconfont {
+  font-size: 0.93867rem;
+  color: #ffd54f;
+}
+
+#hours {
+  background-color: #fff;
+  padding: 0.17067rem 0;
+}
+
+#hours .scroll #hour_list {
+  display: flex;
+}
+
+#hours .scroll #hour_list .item {
+  width: 1.96267rem;
+  height: 3.41333rem;
+  margin: 0.85333rem 0.21333rem;
+}
+
+#hours .scroll #hour_list .item .time {
+  color: #999;
+  text-align: center;
+  font-size: 0.512rem;
+}
+
+#hours .scroll #hour_list .item .icon {
+  margin: 0.256rem auto;
+  text-align: center;
+}
+
+#hours .scroll #hour_list .item .icon .iconfont {
+  font-size: 0.93867rem;
+  color: #ffd54f;
+}
+
+#hours .scroll #hour_list .item .tempt {
+  color: #434343;
+  text-align: center;
+  font-size: 0.59733rem;
+  color: #434343;
+  transform: translateX(0.128rem);
+}
+
+#week {
+  border-bottom: solid 0.02133rem #999;
+  background-color: #fff;
+  font-size: 0.55467rem;
+  height: 14.50667rem;
+  margin-bottom: 0.42667rem;
+  padding-top: 1.10933rem;
+  position: relative;
+}
+
+#week #week_list {
+  width: 2.64533rem;
+  text-align: center;
+  display: flex;
+}
+
+#week #week_list .item {
+  margin: 0 0.42667rem;
+}
+
+#week #week_list > :first-child {
+  color: #b2b2b2;
+}
+
+#week #week_list > :first-child .iconfont {
+  color: #c9eaf5;
+}
+
+#week #week_list .day,
+#week #week_list .date,
+#week #week_list .wind {
+  color: #999999;
+}
+
+#week #week_list .date {
+  margin: 0.08533rem 0 0.42667rem 0;
+}
+
+#week #week_list .daytime .weat {
+  font-size: 0.64rem;
+  margin-bottom: 0.21333rem;
+}
+
+#week #week_list .iconfont {
+  font-size: 1.28rem;
+  color: #45cefc;
+}
+
+#week #week_list .night {
+  margin-top: 4.26667rem;
+}
+
+#week #week_list .night .weat {
+  font-size: 0.64rem;
+  margin: 0.42667rem 0;
+}
+
+#week #week_list .wind .w {
+  margin-bottom: 0.08533rem;
+}
+
+#week .chart {
+  position: absolute;
+  top: 5.54667rem;
+  height: 4.26667rem;
+  overflow: hidden;
+}
+
+#index_of_living {
+  background-color: #fff;
+}
+
+#index_of_living .scroll {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200%;
+}
+
+#index_of_living .iconfont {
+  font-size: 0.768rem;
+}
+
+#index_of_living .icon-car {
+  color: #a4ade0;
+}
+
+#index_of_living .icon-clothes {
+  color: #e1a4c4;
+}
+
+#index_of_living .icon-umbrella {
+  color: #c2a5e0;
+}
+
+#index_of_living .icon-pill {
+  color: #dfc79c;
+}
+
+#index_of_living .icon-washcar {
+  color: #b5e6a8;
+}
+
+#index_of_living .icon-basketball {
+  color: #e8dca3;
+}
+
+#index_of_living .icon-sun {
+  color: #dcafa2;
+}
+
+#index_of_living .icon-fish {
+  color: #a3dfd4;
+}
+
+#index_of_living .icon-trunk {
+  color: #f0baa8;
+}
+
+#index_of_living .icon-traffic-light {
+  color: #a4ade0;
+}
+
+#index_of_living .icon-spread {
+  color: #b28a90;
+}
+
+#index_of_living .icon-smile {
+  color: #9ec48c;
+}
+
+#index_of_living .icon-hanger {
+  color: #a6bacc;
+}
+
+#index_of_living .icon-lipstick {
+  color: #e19696;
+}
+
+#index_of_living .icon-exercise {
+  color: #91cae0;
+}
+
+#index_of_living .icon-nose2 {
+  color: #98a6dc;
+}
+
+#index_of_living .item {
+  text-align: center;
+  border: solid 0.00853rem #999;
+  width: 3.968rem;
+  height: 3.92533rem;
+  padding-top: 0.42667rem;
+}
+
+#index_of_living .item .content {
+  font-size: 0.59733rem;
+  color: #434343;
+}
+
+#index_of_living .item .title {
+  font-size: 0.512rem;
+  color: #999;
+}
